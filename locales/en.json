@@ -1,0 +1,25 @@
+{
+  "conekta": {
+    "payment": {
+      "loading": "Loading…",
+      "method": "Payment method",
+      "card": "Credit / debit card",
+      "oxxo": "OXXO Pay (cash)",
+      "spei": "SPEI bank transfer",
+      "token": "Card token",
+      "fullPayment": "Pay in full",
+      "pay": "Pay"
+    },
+    "voucher": {
+      "loading": "Generating voucher…",
+      "oxxoInstructions": "Present this reference at any OXXO store:",
+      "speiInstructions": "Transfer to this CLABE from your bank:",
+      "expires": "Expires"
+    },
+    "success": {
+      "title": "Payment received",
+      "message": "Your Conekta payment has been confirmed.",
+      "dashboard": "Back to dashboard"
+    }
+  }
+}

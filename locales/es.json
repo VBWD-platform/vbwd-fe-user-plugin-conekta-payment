@@ -1,0 +1,25 @@
+{
+  "conekta": {
+    "payment": {
+      "loading": "Cargando…",
+      "method": "Método de pago",
+      "card": "Tarjeta de crédito / débito",
+      "oxxo": "OXXO Pay (efectivo)",
+      "spei": "Transferencia SPEI",
+      "token": "Token de tarjeta",
+      "fullPayment": "Pagar completo",
+      "pay": "Pagar"
+    },
+    "voucher": {
+      "loading": "Generando ficha…",
+      "oxxoInstructions": "Presenta esta referencia en cualquier OXXO:",
+      "speiInstructions": "Transfiere a esta CLABE desde tu banco:",
+      "expires": "Expira"
+    },
+    "success": {
+      "title": "Pago recibido",
+      "message": "Tu pago Conekta ha sido confirmado.",
+      "dashboard": "Volver al panel"
+    }
+  }
+}
