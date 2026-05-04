@@ -1,7 +1,9 @@
 <template>
   <div class="conekta-voucher">
     <h2>{{ title }}</h2>
-    <div v-if="loading">{{ $t('conekta.voucher.loading') }}</div>
+    <div v-if="loading">
+      {{ $t('conekta.voucher.loading') }}
+    </div>
     <div v-else-if="order">
       <div v-if="order.method === 'oxxo_cash'">
         <p>{{ $t('conekta.voucher.oxxoInstructions') }}</p>
@@ -11,7 +13,10 @@
         <p>{{ $t('conekta.voucher.speiInstructions') }}</p>
         <code class="clabe">{{ order.clabe }}</code>
       </div>
-      <p v-if="order.expires_at" class="expiry">
+      <p
+        v-if="order.expires_at"
+        class="expiry"
+      >
         {{ $t('conekta.voucher.expires') }}: {{ formatDate(order.expires_at) }}
       </p>
     </div>

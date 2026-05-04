@@ -1,28 +1,61 @@
 <template>
   <div class="conekta-payment">
-    <div v-if="loading">{{ $t('conekta.payment.loading') }}</div>
-    <div v-else-if="error" class="error">{{ error }}</div>
+    <div v-if="loading">
+      {{ $t('conekta.payment.loading') }}
+    </div>
+    <div
+      v-else-if="error"
+      class="error"
+    >
+      {{ error }}
+    </div>
 
-    <form v-else @submit.prevent="onSubmit">
+    <form
+      v-else
+      @submit.prevent="onSubmit"
+    >
       <label>{{ $t('conekta.payment.method') }}</label>
       <select v-model="method">
-        <option value="card">{{ $t('conekta.payment.card') }}</option>
-        <option value="oxxo_cash">{{ $t('conekta.payment.oxxo') }}</option>
-        <option value="spei">{{ $t('conekta.payment.spei') }}</option>
+        <option value="card">
+          {{ $t('conekta.payment.card') }}
+        </option>
+        <option value="oxxo_cash">
+          {{ $t('conekta.payment.oxxo') }}
+        </option>
+        <option value="spei">
+          {{ $t('conekta.payment.spei') }}
+        </option>
       </select>
 
       <div v-if="method === 'card'">
-        <input v-model="tokenId" :placeholder="$t('conekta.payment.token')" required />
+        <input
+          v-model="tokenId"
+          :placeholder="$t('conekta.payment.token')"
+          required
+        >
         <select v-model="msi">
-          <option :value="1">{{ $t('conekta.payment.fullPayment') }}</option>
-          <option :value="3">3 MSI</option>
-          <option :value="6">6 MSI</option>
-          <option :value="9">9 MSI</option>
-          <option :value="12">12 MSI</option>
+          <option :value="1">
+            {{ $t('conekta.payment.fullPayment') }}
+          </option>
+          <option :value="3">
+            3 MSI
+          </option>
+          <option :value="6">
+            6 MSI
+          </option>
+          <option :value="9">
+            9 MSI
+          </option>
+          <option :value="12">
+            12 MSI
+          </option>
         </select>
       </div>
 
-      <button class="btn btn-primary" type="submit">
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
         {{ $t('conekta.payment.pay') }}
       </button>
     </form>
