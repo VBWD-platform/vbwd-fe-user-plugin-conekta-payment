@@ -83,7 +83,7 @@ async function onSubmit() {
   }
   loading.value = true;
   try {
-    const resp = await api.post('/api/v1/plugins/conekta/orders', {
+    const resp = await api.post<Response>('/api/v1/plugins/conekta/orders', {
       invoice_no: invoiceNo,
       amount: route.query.amount,
       currency: 'MXN',

@@ -49,7 +49,7 @@ const title = computed(() => {
 onMounted(async () => {
   const invoice = route.query.invoice as string;
   try {
-    const resp = await api.get(
+    const resp = await api.get<Response>(
       `/api/v1/plugins/conekta/orders/${invoice}/status`,
     );
     order.value = await resp.json();
