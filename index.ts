@@ -4,7 +4,7 @@ import es from './locales/es.json';
 
 export const conektaPaymentPlugin: IPlugin = {
   name: 'conekta-payment',
-  version: '1.0.0',
+  version: '26.6',
   description: 'Conekta (Mexico) — cards + MSI + OXXO + SPEI',
   _active: false,
 
