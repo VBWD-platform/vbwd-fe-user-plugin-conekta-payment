@@ -35,6 +35,9 @@ interface Order {
   expires_at?: string;
 }
 
+// Relative to the api client's `/api/v1` baseURL.
+const API_PREFIX = '/plugins/conekta';
+
 const route = useRoute();
 const loading = ref(true);
 const order = ref<Order | null>(null);
@@ -49,10 +52,7 @@ const title = computed(() => {
 onMounted(async () => {
   const invoice = route.query.invoice as string;
   try {
-    const resp = await api.get<Response>(
-      `/api/v1/plugins/conekta/orders/${invoice}/status`,
-    );
-    order.value = await resp.json();
+    order.value = await api.get<Order>(`${API_PREFIX}/orders/${invoice}/status`);
   } finally {
     loading.value = false;
   }

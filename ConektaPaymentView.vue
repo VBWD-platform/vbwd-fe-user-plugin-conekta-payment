@@ -67,6 +67,9 @@ import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { api } from '@/api';
 
+// Relative to the api client's `/api/v1` baseURL.
+const API_PREFIX = '/plugins/conekta';
+
 const route = useRoute();
 const router = useRouter();
 const loading = ref(false);
@@ -83,7 +86,7 @@ async function onSubmit() {
   }
   loading.value = true;
   try {
-    const resp = await api.post<Response>('/api/v1/plugins/conekta/orders', {
+    await api.post(`${API_PREFIX}/orders`, {
       invoice_no: invoiceNo,
       amount: route.query.amount,
       currency: 'MXN',
@@ -93,8 +96,6 @@ async function onSubmit() {
       token_id: method.value === 'card' ? tokenId.value : undefined,
       msi: method.value === 'card' && msi.value > 1 ? msi.value : undefined,
     });
-    const body = await resp.json();
-    if (!resp.ok) throw new Error(body.error || 'failed');
     if (method.value === 'card') {
       router.push({ name: 'conekta-success' });
     } else {
